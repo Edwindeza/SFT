@@ -1,8 +1,10 @@
-# SLM
+# SLM - Documentos
 
 ### Descripción
 
-Sistema Web de Reserva de Locales Musicales
+Documentos del Sistema Web de Reserva de Locales Musicales (SLM)
 
-`TODO`
-- Pasos para el despliegue local del proyecto
+### Archivos
+
+- SLM_DN: Documento de Negocio
+- SLM_PP: Plan de Proyecto
