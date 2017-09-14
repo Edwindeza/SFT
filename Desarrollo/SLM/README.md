@@ -2,7 +2,7 @@
 
 ### Descripción
 
-Sistema Web de Reserva de Locales Musicales
+Sistema Web de Reserva de Locales Musicales (SLM).
 
-`TODO`
-- Pasos para el despliegue local del proyecto
+La carpeta Software contiene el Código fuente del Sistema.
+La carpeta Documentos contiene los documentos correspondientes del Sistema.
