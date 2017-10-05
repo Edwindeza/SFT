@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Manga</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  <script type="text/javascript" src="https://unpkg.com/vue"></script>
+  <script type="text/javascript" src="https://unpkg.com/vue-resource@1.3.4"></script>
+</head>
+<body>
+  <div id="vue-app">
+    <div id="actual-manga">
+      <span>{{ actualManga.author }}</span>
+      <span><strong>{{ actualManga.title }}</strong></span>
+      <span>Chapter {{ actualChapter }}</span>
+      <select id="choose-page" class="choose-page" v-model="actualPage">
+        <option v-for="page in pages">{{ page.page }}</option>
+      </select>
+    </div>
+    <hr></hr>
+    <div class="page" v-for="page in pages">
+      <img v-bind:src="page.image_path" v-show="page.page == actualPage && !showAskNextChapter" v-on:click="changePage">
+    </div>
+    <div class="next-chapter" v-show="showAskNextChapter">
+      <button v-on:click="loadNextChapter">Do you want see the next chapter? ( ͡° ͜ʖ ͡°)</button>
+    </div>
+    <div class="last-chapter-message" v-show="showMessageLastChapter">
+      <p>You read the last chapter ¯\_(ツ)_/¯</p>
+    </div>
+  </div>
+  <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
