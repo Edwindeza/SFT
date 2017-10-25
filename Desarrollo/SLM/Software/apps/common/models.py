@@ -71,14 +71,20 @@ class Departamento(BaseModel):
         verbose_name = 'Departamento'
         verbose_name_plural = 'Departamentos'
 
+    def __str__(self):
+        return self.nombre
+
 
 class Provincia(BaseModel):
     nombre = models.CharField(max_length=40)
-    provincia = models.ForeignKey(Departamento)
+    departamento = models.ForeignKey(Departamento)
 
     class Meta:
         verbose_name = 'Provincia'
         verbose_name_plural = 'Provincias'
+
+    def __str__(self):
+        return self.nombre
 
 
 class Distrito(BaseModel):
@@ -88,3 +94,6 @@ class Distrito(BaseModel):
     class Meta:
         verbose_name = 'Distrito'
         verbose_name_plural = 'Distritos'
+
+    def __str__(self):
+        return self.nombre
