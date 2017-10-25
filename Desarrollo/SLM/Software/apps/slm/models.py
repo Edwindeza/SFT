@@ -11,6 +11,9 @@ class TipoInstrumento(BaseModel):
         verbose_name = 'Tipo de Instrumento'
         verbose_name_plural = 'Tipos de Instrumentos'
 
+    def __str__(self):
+        return self.nombre
+
 
 class Instrumento(BaseModel):
     nombre = models.CharField(max_length=30)
@@ -19,6 +22,9 @@ class Instrumento(BaseModel):
     class Meta:
         verbose_name = 'Instrumento'
         verbose_name_plural = 'Instrumentos'
+
+    def __str__(self):
+        return self.nombre
 
 
 def subir_foto_instrumento(instance, filename):
@@ -36,6 +42,9 @@ class InstrumentoRegistrado(BaseModel):
     class Meta:
         verbose_name = 'Instrumento registrado'
         verbose_name_plural = 'Instrumentos registrados'
+
+    def __str__(self):
+        return '{} {} {}'.format(self.instrumento.nombre, self.marca, self.modelo)
 
 
 def subir_foto_local(instance, filename):
@@ -55,6 +64,9 @@ class Local(BaseModel):
         verbose_name = 'Local'
         verbose_name_plural = 'Locales'
 
+    def __str__(self):
+        return '{} - {}'.format(self.nombre, self.distrito.nombre)
+
 
 class TipoDocumento(BaseModel):
     nombre = models.CharField(max_length=10)
@@ -63,6 +75,9 @@ class TipoDocumento(BaseModel):
         verbose_name = 'Tipo de documento'
         verbose_name_plural = 'Tipos de documentos'
 
+    def __str__(self):
+        return self.nombre
+
 
 class GeneroMusical(BaseModel):
     nombre = models.CharField(max_length=20)
@@ -70,6 +85,9 @@ class GeneroMusical(BaseModel):
     class Meta:
         verbose_name = 'Genero musical'
         verbose_name_plural = 'Generos musicales'
+
+    def __str__(self):
+        return self.nombre
 
 
 class Cliente(BaseModel):
@@ -88,6 +106,9 @@ class Cliente(BaseModel):
     class Meta:
         verbose_name = 'Cliente'
         verbose_name_plural = 'Clientes'
+
+    def __str__(self):
+        return '{} {} {}'.format(self.nombres, self.apellido_paterno, self.apellido_materno)
 
 
 class Reserva(BaseModel):
@@ -117,3 +138,6 @@ class Reserva(BaseModel):
     class Meta:
         verbose_name = 'Reserva'
         verbose_name_plural = 'Reservas'
+
+    def __str__(self):
+        return 'Reserva #{} - {} {}-{}'.format(self.pk, self.fecha_reserva, self.hora_inicio, self.hora_fin)
