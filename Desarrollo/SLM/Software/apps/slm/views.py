@@ -13,7 +13,7 @@ class IndexView(TemplateView):
 class ReservaView(FormView):
     template_name = 'reserva.html'
     form_class = ReservaForm
-    success_url = reverse_lazy('slm:gracias')
+    success_url = reverse_lazy('slm:index')
 
     def form_valid(self, form):
         reserva = form.save(commit=False)
@@ -22,7 +22,7 @@ class ReservaView(FormView):
         tipo_doc = form.cleaned_data.get('tipo_doc')
         clientes = Cliente.objects.filter(tipo_doc=tipo_doc, nro_doc=nro_doc)
 
-        if clientes.count() == 1:
+        if clientes.exists():
             cliente = clientes.first()
         else:
             cliente = Cliente.objects.create(tipo_doc=tipo_doc,
