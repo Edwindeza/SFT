@@ -1,166 +1,85 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% block content %}
 
-  <head>
+  {% include 'navbar.html' %}
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Locales Kenshin</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-
-    <!-- Custom fonts for this template -->
-    <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-
-    <!-- Plugin CSS -->
-    <link href="{%  static 'vendor/magnific-popup/magnific-popup.css' %}" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="{%  static 'css/creative.min.css' %}" rel="stylesheet">
-
-  </head>
-
-  <body id="page-top">
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Locales Kenshin</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">Nosotros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Nuestro servicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contacto</a>
-            </li>
-          </ul>
+  <header class="masthead text-center text-white d-flex">
+    <div class="container my-auto">
+      {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" id="snackbar">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <h1 class="text-uppercase">
+            <strong>¡Ahora reserva tu local musical por Internet!</strong>
+          </h1>
+          <hr>
+        </div>
+        <div class="col-lg-8 mx-auto">
+          <a class="btn btn-primary btn-xl" href="{% url 'slm:reserva' %}">¡Reserva aquí!</a>
         </div>
       </div>
-    </nav>
+    </div>
+  </header>
 
-    <header class="masthead text-center text-white d-flex">
-      <div class="container my-auto">
-        <div class="row">
-          <div class="col-lg-10 mx-auto">
-            <h1 class="text-uppercase">
-              <strong>¡Ahora reserva tu local musical por Internet!</strong>
-            </h1>
-            <hr>
-          </div>
-          <div class="col-lg-8 mx-auto">
-            <a class="btn btn-primary btn-xl" href="#">¡Reserva aquí!</a>
-          </div>
+  <section class="bg-primary" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h2 class="section-heading text-white">Entedemos lo que necesitas por qué también somos músicos ;)</h2>
+          <hr class="light my-4">
+          <p class="text-faded mb-4">En Locales Kenshin no solo tienes el local a tu disposición sino también un ambiente ameno para ensayar con tus amigos y pasar un buen momento. Trabajamos con las mejores marcas para que tengas el sonido al que desear llegar.</p>
+          <p class="text-faded mb-4">Respaldados por nuestros clientes que disfrutan tocar aquí, nos alegra pensar que somos parte de sus recuerdos.</p>
+          <a class="btn btn-light btn-xl js-scroll-trigger" href="{% url 'slm:reserva' %}">¡Pedir una reserva!</a>
         </div>
       </div>
-    </header>
+    </div>
+  </section>
 
-    <section class="bg-primary" id="about">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading text-white">Entedemos lo que necesitas por qué también somos músicos ;)</h2>
-            <hr class="light my-4">
-            <p class="text-faded mb-4">En Locales Kenshin no solo tienes el local a tu disposición sino también un ambiente ameno para ensayar con tus amigos y pasar un buen momento. Trabajamos con las mejores marcas para que tengas el sonido al que desear llegar.</p>
-            <p class="text-faded mb-4">Respaldados por nuestros clientes que disfrutan tocar aquí, nos alegra pensar que somos parte de sus recuerdos.</p>
-            <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">¡Pedir una reserva!</a>
+  <section id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading">Nos ponemos en tu piel</h2>
+          <hr class="my-4">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="service-box mt-5 mx-auto">
+            <i class="fa fa-4x fa-diamond text-primary mb-3 sr-icons"></i>
+            <h3 class="mb-3">Ambientes de primera</h3>
+            <p class="text-muted mb-0">Los mantenemos pensando en los músicos</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="service-box mt-5 mx-auto">
+            <i class="fa fa-4x fa-paper-plane text-primary mb-3 sr-icons"></i>
+            <h3 class="mb-3">Listos para tocar</h3>
+            <p class="text-muted mb-0">Instrumentos afinados y colocados como mejor te parezca</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="service-box mt-5 mx-auto">
+            <i class="fa fa-4x fa-newspaper-o text-primary mb-3 sr-icons"></i>
+            <h3 class="mb-3">Actualizados</h3>
+            <p class="text-muted mb-0">Mantenemos informados a nuestros trabajadores y clientes sobre el mundo de la música</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 text-center">
+          <div class="service-box mt-5 mx-auto">
+            <i class="fa fa-4x fa-heart text-primary mb-3 sr-icons"></i>
+            <h3 class="mb-3">Todo con amor</h3>
+            <p class="text-muted mb-0">Damos lo mejor de nosotros para que pasen un momento inolvidable</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="services">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading">Nos ponemos en tu piel</h2>
-            <hr class="my-4">
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-md-6 text-center">
-            <div class="service-box mt-5 mx-auto">
-              <i class="fa fa-4x fa-diamond text-primary mb-3 sr-icons"></i>
-              <h3 class="mb-3">Ambientes de primera</h3>
-              <p class="text-muted mb-0">Los mantenemos pensando en los músicos</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 text-center">
-            <div class="service-box mt-5 mx-auto">
-              <i class="fa fa-4x fa-paper-plane text-primary mb-3 sr-icons"></i>
-              <h3 class="mb-3">Listos para tocar</h3>
-              <p class="text-muted mb-0">Instrumentos afinados y colocados como mejor te parezca</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 text-center">
-            <div class="service-box mt-5 mx-auto">
-              <i class="fa fa-4x fa-newspaper-o text-primary mb-3 sr-icons"></i>
-              <h3 class="mb-3">Actualizados</h3>
-              <p class="text-muted mb-0">Mantenemos informados a nuestros trabajadores y clientes sobre el mundo de la música</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 text-center">
-            <div class="service-box mt-5 mx-auto">
-              <i class="fa fa-4x fa-heart text-primary mb-3 sr-icons"></i>
-              <h3 class="mb-3">Todo con amor</h3>
-              <p class="text-muted mb-0">Damos lo mejor de nosotros para que pasen un momento inolvidable</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading">¡Resolvemos tus dudas!</h2>
-            <hr class="my-4">
-            <p class="mb-5">Listos para atenderte como te lo mereces</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 ml-auto text-center">
-            <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>
-            <p>123-456-6789</p>
-          </div>
-          <div class="col-lg-4 mr-auto text-center">
-            <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
-            <p>
-              <a href="mailto:your-email@your-domain.com">consultas@localeskenshin.com</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="{%  static 'vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{%  static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="{%  static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
-    <script src="{%  static 'vendor/scrollreveal/scrollreveal.min.js' %}"></script>
-    <script src="{%  static 'vendor/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="{%  static 'js/creative.min.js' %}"></script>
-
-  </body>
-
-</html>
+  {% include 'contacto.html' %}
+{% endblock %}
