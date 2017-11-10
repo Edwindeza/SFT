@@ -66,6 +66,7 @@ class BaseModel(SoftDeletionModel):
 
 class Departamento(BaseModel):
     nombre = models.CharField(max_length=40)
+    codigo = models.CharField(max_length=10, default='')
 
     class Meta:
         verbose_name = 'Departamento'
@@ -77,7 +78,8 @@ class Departamento(BaseModel):
 
 class Provincia(BaseModel):
     nombre = models.CharField(max_length=40)
-    departamento = models.ForeignKey(Departamento)
+    departamento = models.ForeignKey(Departamento, related_name="departamento")
+    codigo = models.CharField(max_length=10, default='')
 
     class Meta:
         verbose_name = 'Provincia'
@@ -89,7 +91,8 @@ class Provincia(BaseModel):
 
 class Distrito(BaseModel):
     nombre = models.CharField(max_length=40)
-    provincia = models.ForeignKey(Provincia)
+    provincia = models.ForeignKey(Provincia, related_name="provincia")
+    codigo = models.CharField(max_length=10, default='')
 
     class Meta:
         verbose_name = 'Distrito'
