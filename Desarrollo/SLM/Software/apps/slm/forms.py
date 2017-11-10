@@ -26,7 +26,7 @@ class ReservaForm(forms.ModelForm):
     instrumentos = forms.ModelMultipleChoiceField(
         required=False,
         queryset=InstrumentoRegistrado.objects.all(),
-        widget=forms.Select(attrs={
+        widget=forms.SelectMultiple(attrs={
             'class': 'select2'
         })
     )
