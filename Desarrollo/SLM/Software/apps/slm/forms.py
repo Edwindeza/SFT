@@ -104,4 +104,4 @@ class ReservaForm(forms.ModelForm):
 
     class Meta:
         model = Reserva
-        fields = ['fecha_reserva', 'hora_inicio', 'hora_fin', 'cantidad_personas', 'local']
+        fields = ['fecha_reserva', 'hora_inicio', 'hora_fin', 'cantidad_personas', 'local', 'trae_instrumento']

@@ -134,6 +134,7 @@ class Reserva(BaseModel):
     hora_inicio = models.TimeField()
     hora_fin = models.TimeField()
     instrumentos = models.ManyToManyField(InstrumentoRegistrado)
+    trae_instrumento = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = 'Reserva'

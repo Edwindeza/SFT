@@ -25,17 +25,17 @@
 
           <div class="row form-group">
             <div class="col-sm-4">
-              <label class="col-form-label">Local:</label>
+              <label required="" class="col-form-label">Local:</label>
               {{ form.local }}
             </div>
             <div class="col-sm-4">
-              <label class="col-form-label">¿Cuántos son los músicos que recibiremos?</label>
+              <label required="" class="col-form-label">¿Cuántos son los músicos que recibiremos?</label>
               {{ form.cantidad_personas }}
             </div>
           </div>
           <div class="row form-group">
             <div class="col-sm-4">
-              <label class="col-form-label">Hora inicio:</label>
+              <label required="" class="col-form-label">Hora inicio:</label>
               {{ form.hora_inicio }}
             </div>
             <div class="col-sm-4">
@@ -46,6 +46,12 @@
               <label class="col-form-label">Fecha:</label>
               <input type="text" required="" class="datepicker"/>
               <input type="hidden" name="fecha_reserva" id="fecha_reserva">
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-sm-6">
+              <label class="col-form-label">Lleva instrumentos</label>
+              {{ form.trae_instrumento }}
             </div>
           </div>
           <div class="row form-group">
