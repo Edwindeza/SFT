@@ -7,7 +7,8 @@ from .models import (
     Local,
     Cliente,
     GeneroMusical,
-    InstrumentoRegistrado
+    InstrumentoRegistrado,
+    Reserva
 )
 
 
@@ -50,4 +51,9 @@ class ClienteAdmin(admin.ModelAdmin):
 
 @admin.register(GeneroMusical)
 class GeneroMusicalAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Reserva)
+class ReservaAdmin(admin.ModelAdmin):
     pass
